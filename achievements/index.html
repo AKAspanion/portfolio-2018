@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="uts-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="switch">
+        <div id="up">&uarr;</div>
+        <div id="dn">&darr;</div>
+    </div>
+    <div class="scroll-downs">
+        <div class="mousey">
+            <div class="scroller"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <div class="name">
+                <div>ACM ICPC </div>
+                <div>DESIGNOPHY</div>
+                <div>CODEARDOR</div>
+                <div>CODEVITA</div>
+            </div>
+        </div>
+        <div class="certificates">
+            <div id="ic" class="certificate">
+                <img src="images/acmicpc.jpg">
+            </div>
+            <div id="de" class="certificate">
+                <img src="images/designophy.jpg">
+            </div>
+            <div id="co" class="certificate">
+                <img src="images/codeardor.jpg">
+            </div>
+            <div id="tcs" class="certificate">
+                <img src="images/tcs.jpg">
+            </div>
+        </div>
+        <div class="desc">
+            <div class="item">
+                <div class="items">
+                    <p>My team qualified and went for the prestigious ACM-ICPC Asia Regional On-Site Round,Amritapuri, 2016.</p>
+                </div>
+                <div class="items">
+                    <p>Secured 1st position in annual college fest Website Design Competition, 2017.</p>
+                    <a href="http://ankitkumar.esy.es/designophy/" target="_blank"><input style="border-bottom: 2px solid #fff;" class="button" type="submit" value="See it"  /></a>
+                </div>
+                <div class="items">
+                    <p>Secured 2nd position in annual college fest Coding Competition, 2017.</p>
+                </div>
+                <div class="items">
+                    <p>Secured 512 position in Round 1 of TCS CODEVITA. And then Secured 151 position in Round 2 of TCS CODEVITA, 2017.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-no">
+            <div class="number">
+                <div>01</div>
+                <div>02</div>
+                <div>03</div>
+                <div>04</div>
+            </div>
+        </div>
+        <div id="land">
+            <div class="main main-1">
+
+            </div>
+            <div class="main main-2">
+
+            </div>
+            <div class="main main-3">
+
+            </div>
+            <div class="main main-4">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var w = $(window).width();
+        var position = 1;
+        var numHeight = 90;
+        $(document).ready(function() {
+            $(window).bind('mousewheel', function(e) {
+                disableScroll();
+                setTimeout(function() {
+                    enableScroll();
+                }, 1100);
+                if (e.originalEvent.wheelDelta / 120 < 0) {
+                    //scroll down
+                    scrollDown();
+                } else {
+                    //scroll up
+                    scrollUp();
+                }
+            });
+        });
+
+
+        document.getElementById("dn").addEventListener("click", function() {
+            disableScroll();
+            setTimeout(function() {
+                enableScroll();
+            }, 1100);
+            scrollDown();
+        });
+
+
+        document.getElementById("up").addEventListener("click", function() {
+            disableScroll();
+            setTimeout(function() {
+                enableScroll();
+            }, 1100);
+            scrollUp();
+        });
+
+        function scrollDown() {
+            if (position == 3) {
+                position = 4;
+                changeSwitchColor("black", "grey");
+                scrollDesc("-360");
+                scrollName("-270");
+                scrollNumber("-270");
+                scrollCertificate("-96");
+                scrollElement("-110", "-110", "-110", "0", "110", "110", "110", "110");
+            }
+            if (position == 2) {
+                position = 3;
+                changeSwitchColor("black", "black");
+                scrollDesc("-240");
+                scrollName("-180");
+                scrollNumber("-180");
+                scrollCertificate("-64");
+                scrollElement("-110", "-110", "0", "110", "110", "110", "110", "110");
+            }
+            if (position == 1) {
+                position = 2;
+                changeSwitchColor("black", "black");
+                scrollDesc("-120");
+                scrollName("-90");
+                scrollNumber("-90");
+                scrollCertificate("-32");
+                scrollElement("-110", "0", "110", "110", "110", "110", "110", "110");
+            }
+        }
+
+        function scrollUp() {
+            if (position == 1) {}
+            if (position == 2) {
+                position = 1;
+                changeSwitchColor("grey", "black");
+                scrollDesc("0");
+                scrollName("0");
+                scrollNumber("0");
+                scrollCertificate("0");
+                scrollElement("0", "110", "110", "110", "110", "110", "110", "110");
+            }
+            if (position == 3) {
+                position = 2;
+                changeSwitchColor("black", "black");
+                scrollDesc("-120");
+                scrollName("-90");
+                scrollNumber("-90");
+                scrollCertificate("-32");
+                scrollElement("-110", "0", "110", "110", "110", "110", "110", "110");
+            }
+            if (position == 4) {
+                position = 3;
+                changeSwitchColor("black", "black");
+                scrollDesc("-240");
+                scrollName("-180");
+                scrollNumber("-180");
+                scrollCertificate("-64");
+                scrollElement("-110", "-110", "0", "110", "110", "110", "110", "110");
+            }
+        }
+
+        function changeSwitchColor(up, down) {
+            $("#up").css("color", up);
+            $("#dn").css("color", down);
+        }
+
+        var keys = {
+            37: 1,
+            38: 1,
+            39: 1,
+            40: 1
+        };
+
+        function preventDefault(e) {
+            e = e || window.event;
+            if (e.preventDefault)
+                e.preventDefault();
+            e.returnValue = false;
+        }
+
+        function preventDefaultForScrollKeys(e) {
+            if (keys[e.keyCode]) {
+                preventDefault(e);
+                return false;
+            }
+        }
+
+        function disableScroll() {
+            if (window.addEventListener) // older FF
+                window.addEventListener('DOMMouseScroll', preventDefault, false);
+            window.onwheel = preventDefault; // modern standard
+            window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+            window.ontouchmove = preventDefault; // mobile
+            document.onkeydown = preventDefaultForScrollKeys;
+        }
+
+        function enableScroll() {
+            if (window.removeEventListener)
+                window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.onmousewheel = document.onmousewheel = null;
+            window.onwheel = null;
+            window.ontouchmove = null;
+            document.onkeydown = null;
+        }
+
+        function scrollNumber(y) {
+            $('.number').css('transform', 'translate(0,' + y + 'px)');
+        }
+
+        function scrollName(y) {
+            $('.name').css('transform', 'translate(0,' + y + 'px)');
+        }
+
+        function scrollDesc(y) {
+            $('.items').css('transform', 'translate(0,' + y + 'px)');
+        }
+
+        function scrollCertificate(y) {
+            $('.certificate').css('transform', 'translate(0,' + y + 'vw)');
+        }
+
+
+        function scrollElement(y1, y2, y3, y4, y5, y6, y7, y8) {
+            $('.main-1').css('transform', 'translate(0,' + y1 + 'vh)');
+            $('.main-2').css('transform', 'translate(0,' + y2 + 'vh)');
+            $('.main-3').css('transform', 'translate(0,' + y3 + 'vh)');
+            $('.main-4').css('transform', 'translate(0,' + y4 + 'vh)');
+            $('.main-5').css('transform', 'translate(0,' + y5 + 'vh)');
+            $('.main-6').css('transform', 'translate(0,' + y6 + 'vh)');
+            $('.main-7').css('transform', 'translate(0,' + y7 + 'vh)');
+            $('.main-8').css('transform', 'translate(0,' + y8 + 'vh)');
+        };
+
+        function pressPage(item, scale) {
+            if (w >= 640) {
+                $(item).css("transform", "scale(" + scale + ")");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

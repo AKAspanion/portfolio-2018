@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <div id="bubbles">
+        <div class="bubble x1"><img src="ic_home.svg" /></div>
+        <div class="bubble x2"><img src="ic_call.svg" /></div>
+        <div class="bubble x3"><img src="ic_email.svg" /></div>
+        <div class="bubble x4"><img src="ic_home.svg" /></div>
+        <div class="bubble x5"><img src="ic_email.svg" /></div>
+    </div>
+    <div class="contact">
+        <div class="info">
+            <h1>Contact Me</h1>
+            <p> &nbsp; &nbsp; <b>Mob: </b>+919804052152<br> &nbsp; &nbsp; <b>Email: </b>panditankit1995@gmail.com<br> &nbsp; &nbsp; <b>Add: </b>11D, Ho Chi Minh Nagar,<br> &nbsp; &nbsp; Shakuntala Park, Kolkata - 700061.
+            </p>
+        </div>
+        <div class="frm">
+            <div class="message">
+                Or send me a message right now.
+            </div>
+            <form name="myForm" action="feedback_added.php" onsubmit="return validateForm()" method="post">
+                <p><input class="inpt" type="text" name="first_name" placeholder="First Name" value="" required/></p>
+                <p><input class="inpt" type="text" name="last_name" placeholder="Last Name" value="" required/></p>
+                <p><input class="inpt" type="text" name="email" placeholder="Email" value="" required/></p>
+                <p><input class="inpt" style="border-bottom: 1px solid #FFB85F;" type="text" name="message" placeholder="Your Message" required/></p>
+                <div class="submits">
+                    <p><input style="border-bottom: 1px solid #FFB85F;" class="button" type="submit" name="submit" value="Send Message" /></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

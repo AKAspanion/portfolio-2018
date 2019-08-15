@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="uts-8" />
+    <title>Ankit Kumar</title>
+    <meta name="theme-color" content="#00AAA0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/fav-icon.ico" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="logo">
+        <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+            <title>spanion-logo</title>
+            <polygon class="cls-1" points="319.22 393 264.22 393 455 201.83 455 257.17 319.22 393"/>
+            <polygon class="cls-1" points="495.89 353.94 534.78 393 264.66 395 303.79 353.79 495.89 353.94"/>
+            <polygon class="cls-1" points="480.78 407 535.78 407 345 598.17 345 542.83 480.78 407"/>
+            <polygon class="cls-1" points="304.11 446.06 265.22 407 535.34 407 496.21 446.21 304.11 446.06"/>
+            <rect class="cls-2" width="800" height="800"/>    
+        </svg>
+        <span id="top"></span>
+        <span id="right"></span>
+        <span id="bottom"></span>
+        <span id="left"></span>
+    </div>
+    <div id="cover"></div>
+    <div id="loader-container">
+        <object type="text/html" data="loader/index.html" style="width:100%; height:100%; margin:0;"></object>
+    </div>
+    <audio id="audio" src="audio/site-bgm.mp3" loop autoplay></audio>
+    <div class="tagline">PROGRAMMER.<br>DESIGNER.</div>
+    <div class="copyright"><b>&copy;</b>Ankit Kumar | 2018</div>
+    <div id="bars">
+        <div class="bar"></div>
+        <div class="bar"></div> 
+        <div class="bar"></div> 
+        <div class="bar"></div> 
+    </div>
+    <div class="toggle">
+        <div id="tgl" class="hamburger-menu">
+            <div class="hamburger ham-1"></div>
+            <div class="hamburger ham-2"></div>
+            <div class="hamburger ham-3"></div>
+        </div>
+    </div>
+    <div class="menu-container">
+        <div class="menu">
+            <ul class="menu-social">
+                <a href="https://github.com/AKAspanion/" target="_blank">
+                    <li id="gh">Github
+                        <div class="strike"></div>
+                    </li>
+                </a>
+                <a href="https://www.linkedin.com/in/spanion/" target="_blank">
+                    <li id="li">
+                        Linkedin
+                        <div class="strike"></div>
+                    </li>
+                </a>
+                <a href="https://www.facebook.com/AKAspanion" target="_blank">
+                    <li id="fb">Facebook
+                        <div class="strike"></div>
+                    </li>
+                </a>
+                <a href="https://www.instagram.com/spanionkumar/" target="_blank">
+                    <li id="in">Instagram
+                        <div class="strike"></div>
+                    </li>
+                </a>
+            </ul>
+            <div class="head">ANKIT KUMAR</div>
+            <ul class="menu-nav">
+                <li id="ac">Achievements
+                    <div class="strike"></div>
+                </li>
+                <li id="pr">Projects
+                    <div class="strike"></div>
+                </li>
+                <li id="co">Contact
+                    <div class="strike"></div>
+                </li>
+                <li id="ho">Home
+                    <div class="strike"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-container">
+        <div id="title">HOME</div>
+        <div class="page home">
+            <object type="text/html" data="home/index.html" style="width:100%; height:100%; margin:0;"></object>
+        </div>
+        <div class="page project">
+            <object type="text/html" data="projects/index.html" style="width:100%; height:100%; margin:0;"></object>
+        </div>
+        <div class="page contact">
+            <object type="text/html" data="contact/index.html" style="width:100%; height:100%; margin:0;"></object>
+        </div>
+
+        <div class="page achievement">
+            <object type="text/html" data="achievements/index.html" style="width:100%; height:100%; margin:0;"></object>
+        </div>
+    </div>
+
+    <script>
+        var audioClick=0;
+        var audio=document.getElementById("audio");
+        audio.pause(); 
+        var w = $(window).width();
+        //loader stuff
+        function load() {
+            
+            audio.play(); 
+            strikeTransform("#ho", "45");
+            $(".page").css("display", "none");
+            $("body").addClass("stop-click ");
+            setTimeout(function() {
+                $("body").removeClass("stop-click ");
+            }, 2000);
+            setTimeout(function() {
+                animateCover("100", "0", "0", "0");
+            }, 100);
+            setTimeout(function() {
+                $(".cls-1").css("fill", "#555");
+            }, 850);
+            setTimeout(function() {
+                $("#loader-container").css("display", "none");
+                animateCover("0", "-20", "-30", "0");
+            }, 2800);
+            setTimeout(function() {
+                $("#top").css("opacity", "0");
+                $("#right").css("opacity", "0");
+                $("#bottom").css("opacity", "0");
+                $("#left").css("opacity", "0");
+            }, 3500);
+            setTimeout(function() {
+                if (w <= 640) {
+                    $(".tagline").css("transform", "rotate(90deg) translate(0, -100%)");
+                    $(".copyright").css("transform", "rotate(-90deg)");
+                } else {
+                    playAudio();
+                    $("#bars").css("transform","translateX(0)");
+                    $(".tagline").css("transform", "translateX(0)");
+                    $(".copyright").css("transform", "translateX(0)");
+                }
+                togglePage("home");
+            }, 6000);
+            setTimeout(function() {
+                if (w <= 640) {
+                    logoTransform("-20", "150", "150");
+                } else {
+                    logoTransform("12.5", "150", "150");
+                }
+                mainTransform("0", "0");
+            }, 7500);
+            setTimeout(function() {
+                if (w <= 640) {
+                    $(".logo").css("display", "none");
+                    toggleTransform("11");
+                } else {
+                    toggleTransform("10");
+                }
+                $("#top").css("display", "none");
+                $("#right").css("display", "none");
+                $("#bottom").css("display", "none");
+                $("#left").css("display", "none");
+            }, 8500);
+        }
+        window.addEventListener("load", function() {
+            load();
+        });
+
+        function animateCover(width, angle, x, y) {
+            $("#cover").css("width", width + "vw");
+            $("#cover").css("transform", "skewX(" + angle + "deg) translate(" + x + ", " + y + ")");
+        }
+
+        function logoTransform(left, width, height) {
+            $(".logo").css("left", left + "vw");
+            $(".logo").css("height", height + "px");
+            $(".logo").css("width", width + "px");
+        }
+
+        function toggleTransform(left) {
+            $(".toggle").css("left", left + "vw");
+        }
+
+        function mainTransform(x, y) {
+            $(".main-container").css("transform", "translate(" + x + "," + y + ")");
+        }
+
+        function animateToggle() {
+            $(".toggle").css("width", "250px");
+            setTimeout(function() {
+                $(".toggle").css("width", "60px");
+            }, 1900);
+        }
+
+    </script>
+    <script>
+        //click events
+        var flag = 0;
+        document.getElementById("tgl").addEventListener("click", function() {
+            if (flag == 0) {
+                showNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+            } else {
+                hideNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+            }
+        });
+        
+        document.getElementById("bars").addEventListener("click",function()     {
+            playAudio();
+        });
+        function playAudio(){
+            $(".bar").toggleClass("bar-animation");
+            if(audioClick==0){
+                audioClick=1;
+                audio.play();
+            }
+            else{
+                audioClick=0;
+                audio.pause();
+            }
+        }
+        
+        function showNav() {
+            flag = 1;
+            $(".ham-1").css("transform", "translate(0px, 16px) rotate(-45deg)");
+            $(".ham-2").css("transform", "translate(80px, 0)");
+            $(".ham-2").css("opacity", "0");
+            $(".ham-3").css("transform", "translate(0px, -16px) rotate(45deg)");
+            setTimeout(function() {
+                mainTransform("200px", "0px");
+                animateCover("100", "0", "0", "0");
+            }, 0);
+            setTimeout(function() {
+                $(".menu-container").css("transform", "translate(0px, 0px)");
+                if (w <= 640) {
+                    toggleTransform("95");
+                } else {
+                    toggleTransform("30");
+                }
+                logoTransform("30", "150", "150");
+            }, 800);
+            setTimeout(function() {
+                translateList("#ac", "0", "1");
+                translateList("#in", "0", "1");
+            }, 1100);
+            setTimeout(function() {
+                translateList("#pr", "0", "1");
+                translateList("#fb", "0", "1");
+            }, 1400);
+            setTimeout(function() {
+                translateList("#co", "0", "1");
+                translateList("#li", "0", "1");
+            }, 1700);
+            setTimeout(function() {
+                translateList("#ho", "0", "1");
+                translateList("#gh", "0", "1");
+            }, 2000);
+        }
+
+        function hideNav() {
+            flag = 0;
+            $(".ham-1").css("transform", "translate(0px, 0px) rotate(0deg)");
+            $(".ham-2").css("transform", "translate(0px, 0px)");
+            $(".ham-2").css("opacity", "1");
+            $(".ham-3").css("transform", "translate(0px, 0px) rotate(0deg)");
+            setTimeout(function() {
+                mainTransform("0px", "0px");
+                animateCover("0", "-20", "-30", "0");
+            }, 2000);
+            setTimeout(function() {
+                $(".menu-container").css("transform", "translate(-300px, 0px)");
+                if (w <= 640) {
+                    toggleTransform("11");
+                } else {
+                    toggleTransform("10");
+                }
+                logoTransform("12.5", "150", "150");
+            }, 1300);
+            setTimeout(function() {
+                translateList("#ac", "-400", "0");
+                translateList("#in", "-400", "0");
+            }, 600);
+            setTimeout(function() {
+                translateList("#pr", "-400", "0");
+                translateList("#fb", "-400", "0");
+            }, 400);
+            setTimeout(function() {
+                translateList("#co", "-400", "0");
+                translateList("#li", "-400", "0");
+            }, 200);
+            setTimeout(function() {
+                translateList("#ho", "-400", "0");
+                translateList("#gh", "-400", "0");
+            }, 0);
+        }
+
+        var homeClick = 1;
+        var projectClick = 0;
+        var contactClick = 0;
+        var achievementClick = 0;
+        document.getElementById("ac").addEventListener("click", function() {
+            if (achievementClick == 0) {
+                fillTitle("ACHIEVEMENT");
+                $("body").addClass("stop-click ");
+                if (w >= 640) {
+                    logoTransform("80", "400", "400");
+                } else {
+                    animateToggle();
+                }
+                mainTransform("100vw", "0");
+                setTimeout(function() {
+                    togglePage("achievement");
+                }, 1600);
+                setTimeout(function() {
+                    hideNav();
+                }, 2000);
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+                achievementClick = 1;
+                projectClick = 0;
+                contactClick = 0;
+                homeClick = 0;
+                strikeTransform("#pr", "2");
+                strikeTransform("#co", "2");
+                strikeTransform("#ho", "2");
+                strikeTransform("#ac", "120");
+            } else {
+                hideNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 1000);
+            }
+        });
+        document.getElementById("pr").addEventListener("click", function() {
+            if (projectClick == 0) {
+                fillTitle("PROJECTS");
+                $("body").addClass("stop-click ");
+                if (w >= 640) {
+                    logoTransform("80", "400", "400");
+                } else {
+                    animateToggle();
+                }
+                mainTransform("100vw", "0");
+                setTimeout(function() {
+                    togglePage("project");
+                }, 1600);
+                setTimeout(function() {
+                    hideNav();
+                }, 2000);
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+                projectClick = 1;
+                contactClick = 0;
+                homeClick = 0;
+                achievementClick = 0;
+                strikeTransform("#pr", "70");
+                strikeTransform("#co", "2");
+                strikeTransform("#ho", "2");
+                strikeTransform("#ac", "2");
+            } else {
+                hideNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 1000);
+            }
+        });
+        document.getElementById("co").addEventListener("click", function() {
+            if (contactClick == 0) {
+                fillTitle("CONTACT");
+                $("body").addClass("stop-click ");
+                if (w >= 640) {
+                    logoTransform("80", "400", "400");
+                } else {
+                    animateToggle();
+                }
+                mainTransform("100vw", "0");
+                setTimeout(function() {
+                    togglePage("contact");
+                }, 1600);
+                setTimeout(function() {
+                    hideNav();
+                }, 2000);
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+                projectClick = 0;
+                achievementClick = 0;
+                contactClick = 1;
+                homeClick = 0;
+                strikeTransform("#pr", "2");
+                strikeTransform("#co", "65");
+                strikeTransform("#ho", "2");
+                strikeTransform("#ac", "2");
+            } else {
+                hideNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 1000);
+            }
+        });
+        document.getElementById("ho").addEventListener("click", function() {
+            if (homeClick == 0) {
+                fillTitle("HOME");
+                $("body").addClass("stop-click ");
+                if (w >= 640) {
+                    logoTransform("80", "400", "400");
+                } else {
+                    animateToggle();
+                }
+                mainTransform("100vw", "0");
+                setTimeout(function() {
+                    togglePage("home");
+                }, 1600);
+                setTimeout(function() {
+                    hideNav();
+                }, 2000);
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 3000);
+                projectClick = 0;
+                contactClick = 0;
+                achievementClick = 0;
+                homeClick = 1;
+                strikeTransform("#pr", "2");
+                strikeTransform("#co", "2");
+                strikeTransform("#ac", "2");
+                strikeTransform("#ho", "45");
+            } else {
+                hideNav();
+                $("body").addClass("stop-click ");
+                setTimeout(function() {
+                    $("body").removeClass("stop-click ");
+                }, 1000);
+            }
+        });
+
+        function togglePage(page) {
+
+            if (page == "achievement") {
+                $(".achievement").css("display", "block");
+                $(".home").css("display", "none");
+                $(".project").css("display", "none");
+                $(".contact").css("display", "none");
+            }
+            if (page == "home") {
+                $(".home").css("display", "block");
+                $(".project").css("display", "none");
+                $(".contact").css("display", "none");
+                $(".achievement").css("display", "none");
+            }
+            if (page == "contact") {
+                $(".contact").css("display", "block");
+                $(".project").css("display", "none");
+                $(".home").css("display", "none");
+                $(".achievement").css("display", "none");
+            }
+            if (page == "project") {
+                $(".project").css("display", "block");
+                $(".home").css("display", "none");
+                $(".contact").css("display", "none");
+                $(".achievement").css("display", "none");
+            }
+        }
+
+        function fillTitle(title) {
+            document.getElementById("title").innerHTML = title;
+        }
+
+        function translateList(name, x, opacity) {
+            if (flag == 1) {
+                $(name).css("transform", "translate(" + x + "px, 0px)");
+                setTimeout(function() {
+                    $(name).css("opacity", opacity);
+                }, 800);
+            } else {
+                $(name).css("opacity", opacity);
+                setTimeout(function() {
+                    $(name).css("transform", "translate(" + x + "px, 0px)");
+                }, 400);
+            }
+        }
+
+    </script>
+    <script>
+        //hover stuff
+        $("#gh").hover(
+            function() {
+                strikeTransform("#gh", "55");
+            },
+            function() {
+                strikeTransform("#gh", "2");
+            }
+        );
+        $("#li").hover(
+            function() {
+                strikeTransform("#li", "70")
+            },
+            function() {
+                strikeTransform("#li", "2");
+            }
+        );
+        $("#fb").hover(
+            function() {
+                strikeTransform("#fb", "80");
+            },
+            function() {
+                strikeTransform("#fb", "2");
+            }
+        );
+        $("#in").hover(
+            function() {
+                strikeTransform("#in", "85");
+            },
+            function() {
+                strikeTransform("#in", "2");
+            }
+        );
+        $("#ac").hover(
+            function() {
+                strikeTransform("#ac", "120");
+            },
+            function() {
+                if (achievementClick == 0) {
+                    strikeTransform("#ac", "2");
+                }
+            }
+        );
+        $("#pr").hover(
+            function() {
+                strikeTransform("#pr", "70");
+            },
+            function() {
+                if (projectClick == 0) {
+                    strikeTransform("#pr", "2");
+                }
+            }
+        );
+        $("#co").hover(
+            function() {
+                strikeTransform("#co", "65");
+            },
+            function() {
+                if (contactClick == 0) {
+                    strikeTransform("#co", "2");
+                }
+            }
+        );
+        $("#ho").hover(
+            function() {
+                strikeTransform("#ho", "45");
+            },
+            function() {
+                if (homeClick == 0) {
+                    strikeTransform("#ho", "2");
+                }
+            }
+        );
+
+
+        function strikeTransform(element, width) {
+            $(element + " div").css("width", width + "px");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+body {
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: monospace;
+    position: fixed;
+}
+
+.contact {
+    z-index: 2;
+    padding-top: 10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0f0c29), to(#302b63));
+    background: linear-gradient(#0f0c29, #302b63);
+}
+
+.info {
+    float: right;
+    padding: 5vw 5vw;
+    width: 30vw;
+    height: 100vh;
+    background: transparent;
+}
+
+.info p {
+    color: #FFB85F;
+    padding: 0% 5%;
+    float: right;
+    font-size: 13px;
+    border-right: 1px solid #FFB85F;
+}
+
+.info h1 {
+    font-size: 20px;
+    font-family: 'Open Sans';
+    color: #FFB85F;
+    text-align: right;
+}
+
+
+.frm {
+    float: right;
+    padding: 5vw 5vw;
+    width: 50vw;
+    height: 100vh;
+    background: transparent;
+}
+
+.message {
+    font-family: 'Open Sans';
+    width: 100%;
+    margin: 3.2vh auto;
+    text-align: right;
+    font-weight: 400;
+    font-size: 14px;
+    float: right;
+    color: #FFB85F;
+}
+
+form {
+    width: 100%;
+    margin: 0px auto;
+    height: auto;
+    background: transparent;
+    float: right;
+}
+
+input {
+    outline: none;
+    width: 99%;
+    color: #FFB85F;
+    text-align: center;
+    padding: 3% 0%;
+    border-top: 1px solid #FFB85F;
+    border-left: 1px solid #FFB85F;
+    border-right: 1px solid #FFB85F;
+    border-bottom: 0px solid #FFB85F;
+    background: transparent;
+    float: right;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #0f0c29;
+}
+
+::-webkit-input-placeholder {
+    color: #FFB85F;
+}
+
+.submits {
+    padding: 10px 0;
+    width: 50%;
+}
+
+.button {
+    color: #FFB85F;
+    margin: 2px 0 0 0;
+    background: transparent;
+    text-align: center;
+    -webkit-box-shadow: inset 0 -3px 0 #FFB85F;
+    box-shadow: inset 0 -3px 0 #FFB85F;
+    -webkit-transition: .5s cubic-bezier(1, 0, 0, 1);
+    transition: .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.button:hover {
+    -webkit-box-shadow: inset 0 35px 0 #FFB85F;
+    box-shadow: inset 0 35px 0 #FFB85F;
+    color: #462066;
+}
+
+.button:active {
+    -webkit-box-shadow: inset 0 30px 0 #FFB85F;
+    box-shadow: inset 0 30px 0 #FFB85F;
+}
+
+#bubbles {
+    z-index: 0;
+    position: fixed;
+    width: 40vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+
+.bubble {
+    width: 60px;
+    height: 60px;
+    background: #CC0000;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    position: absolute;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+}
+
+.x1 {
+    left: 2vw;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.9;
+    -webkit-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.x2 {
+    left: 15vw;
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6;
+    -webkit-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+
+.x3 {
+    left: 25vw;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    -webkit-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.x4 {
+    left: 30vw;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75;
+    -webkit-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+
+.x5 {
+    left: 10vw;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    -webkit-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 12s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes moveclouds {
+    0% {
+        top: 110vh;
+    }
+    100% {
+        top: -10vh;
+    }
+}
+
+@-webkit-keyframes sideWays {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: 5vw;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .contact {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+    }
+    .info {
+        height: 30vh;
+        width: 100vw;
+        padding: 0vw 5vw;
+    }
+    #bubbles {
+        right: 0;
+        width: 40vw;
+    }
+    .frm {
+        height: 50vh;
+        width: 85vw;
+    }
+    .message {
+        margin: 0 auto;
+    }
+    .info p {
+        font-size: 12px;
+    }
+    input {
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="profile">
+        <img src="images/dark_profile_2.png">
+    </div>
+
+    <div id="typewriteText" class="title"></div>
+    <div class="banner banner-1"></div>
+    <div class="banner banner-2"></div>
+    <script src="dist/typewrite.min.js"></script>
+    <script src="dist/particles.js"></script>
+    <script>
+        var w = $(window).width();
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                $(".profile").css("transform", "translate(0, 0) scale(1)");
+                $('#typewriteText').typewrite({
+                    actions: [{
+                            speed: 14
+                        },
+                        {
+                            type: 'HEY THERE!'
+                        },
+                        {
+                            delay: 1500
+                        },
+                        {
+                            select: {
+                                from: 0,
+                                to: 10
+                            }
+                        },
+                        {
+                            delay: 200
+                        },
+                        {
+                            remove: {
+                                num: 10,
+                                type: 'whole'
+                            }
+                        },
+                        {
+                            type: 'MY NMAE'
+                        },
+                        {
+                            delay: 1500
+                        },
+                        {
+                            select: {
+                                from: 3,
+                                to: 7
+                            }
+                        },
+                        {
+                            delay: 700
+                        },
+                        {
+                            remove: {
+                                num: 4,
+                                type: 'whole'
+                            }
+                        },
+                        {
+                            delay: 300
+                        },
+                        {
+                            type: 'NAME IS ANKIT KUMAR PANDIT. '
+                        },
+                        {
+                            delay: 500
+                        },
+                        {
+                            speed: 20
+                        },
+                        {
+                            type: '<br>'
+                        },
+                        {
+                            type: 'CURRENTLY PURSUING B.TECH IN COMPUTER SCIENCE AND ENGINEERING AT BENGAL INSTITUTE OF TECHNOLOGY, KOLKATA.'
+                        },
+                        {
+                            delay: 500
+                        },
+                        {
+                            speed: 30
+                        },
+                        {
+                            select: {
+                                from: 33,
+                                to: 138
+                            }
+                        },
+                        {
+                            speed: 20
+                        },
+                        {
+                            remove: {
+                                num: 105,
+                                type: 'whole'
+                            }
+                        },
+                        {
+                            delay: 500
+                        },
+                        {
+                            type: 'A GAMER, NOVICE CODER AND TECH ENTHUSIAST.'
+                        },
+                        {
+                            delay: 500
+                        },
+                        {
+                            speed: 25
+                        },
+                        {
+                            select: {
+                                from: 33,
+                                to: 76
+                            }
+                        },
+                        {
+                            remove: {
+                                num: 42,
+                                type: 'whole'
+                            }
+                        },
+                        {
+                            delay: 300
+                        },
+                        {
+                            type: 'WELCOME TO MY PORTFOLIO WEBSITE! '
+                        },
+                        {
+                            delay: 600
+                        },
+                        {
+                            speed: 5
+                        },
+                        {
+                            select: {
+                                from: 11,
+                                to: 29
+                            }
+                        },
+
+                    ]
+
+                });
+            }, 2000);
+
+            setTimeout(function() {
+                $(".banner-1").css("transform", "rotate(45deg) translate(-80%, 0) scale(1)");
+            }, 2300);
+
+            setTimeout(function() {
+                $(".banner-2").css("transform", "rotate(-45deg) translate(-80%, 0) scale(1)");
+            }, 3300);
+
+            setTimeout(function() {
+                $(".banner").css("transition", "all 0.5s");
+            }, 3500);
+        });
+        $(".banner-1").hover(
+            function() {
+                if (w >= 640) {
+                    $(this).css("transform", "rotate(45deg) translate(-80%, 0) scale(0.9)");
+                }
+            },
+            function() {
+                if (w >= 640) {
+                    $(this).css("transform", "rotate(45deg) translate(-80%, 0) scale(1)");
+                }
+            }
+        );
+        $(".banner-2").hover(
+            function() {
+                if (w >= 640) {
+                    $(this).css("transform", "rotate(-45deg) translate(-80%, 0) scale(0.9)");
+                }
+            },
+            function() {
+                if (w >= 640) {
+                    $(this).css("transform", "rotate(-45deg) translate(-80%, 0) scale(1)");
+                }
+            }
+        );
+        particlesJS('particles-js',
+
+            {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 5,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true,
+                "config_demo": {
+                    "hide_card": false,
+                    "background_color": "#b61924",
+                    "background_image": "",
+                    "background_position": "50% 50%",
+                    "background_repeat": "no-repeat",
+                    "background_size": "cover"
+                }
+            }
+
+        );
+    </script>
+</body>
+
+</html>
